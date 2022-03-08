@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "webpack --config ./configs/webpack/webpack.prod.js",
-    "start": "webpack serve --open --config ./configs/webpack/webpack.dev.js",
+    "start": "webpack serve --config ./configs/webpack/webpack.dev.js",
     "server": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -4,10 +4,9 @@ import './styles.css';
 
 import { Content } from './modules';
 
-function App() {
+export function App() {
     return (
         <div className="wrapper flex justify-center">
-
             <Content />
         </div>
     );

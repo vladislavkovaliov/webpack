@@ -51,6 +51,8 @@ module.exports = {
       filename: 'app1.js',
       exposes: {
         './components':  path.resolve(__dirname, '../..', 'src/components'),
+        './modules':  path.resolve(__dirname, '../..', 'src/modules'),
+        './login': path.resolve(__dirname, '../..', 'src/bootstrap'),
       },
       shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
     }),

@@ -14,7 +14,6 @@ export function Content() {
         setPassword(event.target.value);
     }, []);
 
-
     const handleLoginClick = useCallback(async () => {
         try {
             // @ts-ignore
