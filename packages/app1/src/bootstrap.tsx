@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './styles.css';
 
-import { Button } from './components'
+import { Content } from './modules';
 
 function App() {
     return (
-        <div>
-            <Button />
+        <div className="wrapper flex justify-center">
+
+            <Content />
         </div>
     );
 }

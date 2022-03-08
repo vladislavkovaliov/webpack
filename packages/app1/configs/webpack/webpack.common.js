@@ -13,6 +13,14 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/i,
+        use: [
+          "style-loader",
+          "css-loader",
+          "postcss-loader"
+        ],
+      },
     ],
   },
 
@@ -23,29 +31,13 @@ module.exports = {
   entry: {
     index: {
       import: './src/index.tsx',
-      dependOn: 'shared',
     },
-    shared: 'lodash',
   },
 
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, '../..', 'dist'),
     clean: true,
-  },
-
-  optimization: {
-    moduleIds: 'deterministic',
-    runtimeChunk: 'single',
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
-        },
-      },
-    },
   },
 
   plugins: [
@@ -56,12 +48,11 @@ module.exports = {
 
     new ModuleFederationPlugin({
       name: 'app1',
-      filename: 'remoteEntry.js',
-      remotes: {},
+      filename: 'app1.js',
       exposes: {
         './components':  path.resolve(__dirname, '../..', 'src/components'),
       },
-      shared: path.resolve(__dirname, '../..', 'package.json').dependencies,
+      shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
     }),
   ],
  };
