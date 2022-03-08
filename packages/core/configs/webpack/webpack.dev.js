@@ -1,17 +1,15 @@
 const { merge } = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const common = require('./webpack.common.js');
+const path = require("path");
 
 module.exports = merge(common, {
   mode: 'development',
-  devtool: 'inline-source-map',
   devServer: {
-    static: './dist',
-    port: 8080,
+    static: path.join(__dirname, "dist"),
+    port: 3001,
   },
-
   output: {
-    publicPath: 'http://localhost:8080/'
+    publicPath: "auto",
   },
 });

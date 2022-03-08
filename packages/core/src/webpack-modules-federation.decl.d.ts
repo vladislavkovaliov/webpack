@@ -1,1 +1,1 @@
-declare module "app2/components/Button";
+declare module "app1/components";

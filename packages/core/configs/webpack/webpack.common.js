@@ -1,9 +1,7 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-
-const ASSET_PATH = process.env.ASSET_PATH || '/';
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   module: {
@@ -12,6 +10,14 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          "style-loader",
+          "css-loader",
+          "postcss-loader"
+        ],
       },
     ],
   },
@@ -23,9 +29,7 @@ module.exports = {
   entry: {
     index: {
       import: './src/index.tsx',
-      dependOn: 'shared',
     },
-    shared: 'lodash',
   },
 
   output: {
@@ -36,7 +40,7 @@ module.exports = {
 
   optimization: {
     moduleIds: 'deterministic',
-    runtimeChunk: 'single',
+    runtimeChunk: false,
     splitChunks: {
       cacheGroups: {
         vendor: {
@@ -49,19 +53,22 @@ module.exports = {
   },
 
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "styles.css",
+      chunkFilename: "styles.css"
+    }),
+
     new HtmlWebpackPlugin({
       title: 'Core',
       template: path.resolve(__dirname, '../..', 'src/index.html'),
     }),
 
     new ModuleFederationPlugin({
-      name: 'core',
-      filename: 'remoteEntry.js',
+      name: "core",
       remotes: {
-        "app2": "app2@http://localhost:8082/remoteEntry.js",
+        "app1": "app1@http://localhost:3002/app1.js",
       },
-      exposes: {},
-      shared: path.resolve(__dirname, '../..', 'package.json').dependencies,
+      shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
     }),
   ],
  };
