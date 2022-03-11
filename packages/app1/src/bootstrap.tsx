@@ -3,13 +3,35 @@ import ReactDOM from 'react-dom';
 import './styles.css';
 
 import { Content } from './modules';
+import { StoreProvider } from 'store/store';
 
-export function App() {
+
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    Link,
+    useNavigate
+  } from "react-router-dom";
+import { Router } from 'express';
+
+export interface AppProps {
+    onLogin?: () => void;
+}
+
+export function App({ onLogin }: AppProps) {
+    return (<div className="wrapper flex justify-center">
+        <Content onLogin={onLogin} />
+    </div> 
+ 
+    );
+}
+function InitApplication() {
     return (
-        <div className="wrapper flex justify-center">
-            <Content />
-        </div>
+        <StoreProvider>
+            <App />
+        </StoreProvider>
     );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<InitApplication />, document.getElementById('root'));

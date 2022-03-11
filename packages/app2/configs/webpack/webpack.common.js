@@ -42,20 +42,20 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'App1',
+      title: 'App2',
       template: path.resolve(__dirname, '../..', 'src/index.html'),
     }),
 
     new ModuleFederationPlugin({
-      name: 'app1',
-      filename: 'app1.js',
+      name: 'app2',
+      filename: 'app2.js',
       remotes: {
         "store": "store@http://localhost:3000/store.js",
       },
       exposes: {
         './components':  path.resolve(__dirname, '../..', 'src/components'),
         './modules':  path.resolve(__dirname, '../..', 'src/modules'),
-        './login': path.resolve(__dirname, '../..', 'src/bootstrap'),
+        './attackChains': path.resolve(__dirname, '../..', 'src/bootstrap'),
       },
       shared: { react: { singleton: true }, 'react-dom': { singleton: true }, 'react-router-dom': { singleton: true } },
     }),

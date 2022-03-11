@@ -1,11 +1,27 @@
 import React, {useCallback, useState} from 'react';
+import {
+useNavigate
+} from "react-router-dom";
 
 
-const URL = 'https://api.orcasecurity.io/api/user/session'
+const URL = "https://api.orcasecurity.io/api"
 
-export function Content() {
+export interface ContentProps {
+    onLogin?: ({
+       email, password, jwt, refresh, 
+    }: {
+        email: string | null,
+        password: string | null,
+        jwt: string | null,
+        refresh: string | null,
+        status: string,
+    }) => any;
+}
+
+export function Content({ onLogin }: ContentProps) {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+
 
     const handleEmailChange = useCallback((event) => {
         setEmail(event.target.value);
@@ -17,7 +33,7 @@ export function Content() {
     const handleLoginClick = useCallback(async () => {
         try {
             // @ts-ignore
-            const response = await fetch(URL, {
+            const response = await fetch(URL + '/user/session', {
                 method: "POST",
                 mode: 'cors',
                 cache: 'no-cache',
@@ -31,14 +47,40 @@ export function Content() {
                     password: password,
                 }),
             });
-            const body = await response.json()
-            console.log(response, body);
+            const body = await response.json();
+
+            if (onLogin) { 
+                if (body?.status === 'success') {
+                    onLogin({
+                        email: email,
+                        password: password,
+                        jwt: body.jwt.access,
+                        refresh: body.jwt.refresh,
+                        status: body.status,
+                    });
+                } else {
+                    onLogin({
+                        email: null,
+                        password: null,
+                        jwt: null,
+                        refresh: null,
+                        status: body.status,
+                    });
+                }
+               
+            }
         } catch (e) {
-            console.log(e);
+            onLogin({
+                email: null,
+                password: null,
+                jwt: null,
+                refresh: null,
+                status: 'failed',
+            })
         }
     }, [email, password]);
 
-    console.log(email, password);
+
     return (
         <div className="flex flex-col space-y-4">
             <div className="flex flex-col flex-start text-left">
