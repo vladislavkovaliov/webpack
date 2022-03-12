@@ -5,16 +5,6 @@ import './styles.css';
 import { Content } from './modules';
 import { StoreProvider } from 'store/store';
 
-
-import {
-    BrowserRouter,
-    Routes,
-    Route,
-    Link,
-    useNavigate
-  } from "react-router-dom";
-import { Router } from 'express';
-
 export interface AppProps {
     onLogin?: () => void;
 }
@@ -26,6 +16,7 @@ export function App({ onLogin }: AppProps) {
  
     );
 }
+
 function InitApplication() {
     return (
         <StoreProvider>

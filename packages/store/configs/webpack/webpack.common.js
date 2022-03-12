@@ -1,45 +1,13 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const dotenv = require('dotenv');
 
-const ASSET_PATH = process.env.ASSET_PATH || '/';
+const { merge } = require('webpack-merge');
 
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.css$/i,
-        use: [
-          "style-loader",
-          "css-loader",
-          "postcss-loader"
-        ],
-      },
-    ],
-  },
+const base = require('../../../../configs/webpack.config');
 
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  },
-
-  entry: {
-    index: {
-      import: './src/index.tsx',
-    },
-  },
-
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, '../..', 'dist'),
-    clean: true,
-  },
-
+module.exports = merge(base, {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Store',
@@ -52,7 +20,7 @@ module.exports = {
       exposes: {
         "./store": path.resolve(__dirname, '../..', 'src/store'),
       },
-      shared: { react: { singleton: true }, 'react-dom': { singleton: true },  'react-router-dom': { singleton: true } },
+      shared: { react: { singleton: true }, 'react-dom': { singleton: true }, 'react-router-dom': { singleton: true } },
     }),
-  ],
- };
+  ]
+});

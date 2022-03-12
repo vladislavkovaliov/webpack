@@ -28,11 +28,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
 
-  entry: {
-    index: {
-      import: './src/index.tsx',
-    },
-  },
+  entry: './src/index.tsx',
 
   output: {
     filename: '[name].bundle.js',
@@ -53,11 +49,9 @@ module.exports = {
         "store": "store@http://localhost:3000/store.js",
       },
       exposes: {
-        './components':  path.resolve(__dirname, '../..', 'src/components'),
-        './modules':  path.resolve(__dirname, '../..', 'src/modules'),
         './login': path.resolve(__dirname, '../..', 'src/bootstrap'),
       },
       shared: { react: { singleton: true }, 'react-dom': { singleton: true }, 'react-router-dom': { singleton: true } },
     }),
   ],
- };
+};

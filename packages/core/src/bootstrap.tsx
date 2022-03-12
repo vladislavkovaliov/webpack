@@ -12,62 +12,55 @@ import {
   } from "react-router-dom";
 
 
-import { App as Login } from 'app1/login';
-import { App as AttackChains } from 'app2/attackChains';
+const AttackChains = React.lazy(() => import('app2/attackChains'));
+const Login = React.lazy(() => import('app3/attackChains'));
+
 
 import { StoreProvider, useStore } from 'store/store';
+import {useLogin} from "../../store/src/store";
 
 function Home() {
     return (
       <div>
         <Link to="/login">Login</Link>
-        <Link to="/attack-chains">Attack Chains</Link>
+      <Link to="/attack-chains">Attack Chains</Link>
       </div>
     );
 }
 
 function RoutedLogin() {
-    const { login, setEmailAndPassword } = useStore();
+    const { login, setEmailAndPassword, doLogin } = useStore();
+    // const { signIn } = useLogin();
     const navigate = useNavigate();
+    // console.log(signIn)
 
 
     const handleLogin = useCallback((payload: any) => {
+        doLogin('42', '42')
         setEmailAndPassword(payload);
         navigate('/attack-chains');
-    }, []);
+    }, [doLogin, navigate, setEmailAndPassword]);
 
     return <Login onLogin={handleLogin} />
 }
 
-// export function PrivateRoute({ element, path, ...rest }: { element: React.ReactNode; path: string; }) {
-//     const isAuth = false;
-//     const navigate = useNavigate();
-
-//     console.log(navigate)
-//     return (
-//         <Route 
-//             {...rest}
-//             element={() => 
-//                 isAuth ? (element) : (null)
-//             } 
-//         />
-//     );
-// }
+const He = () => (<div>42</div>);
 
 function App() {
     return (
         <div className="h-full w-full">
-            <BrowserRouter>
             <React.Suspense fallback="loading...">
+
+            <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<RoutedLogin />} />
                     <Route path="/attack-chains" element={<AttackChains />} />
-                    {/* <PrivateRoute path="/test" element={() => <div>42</div>} /> */}
+                    <Route path="/login" element={<RoutedLogin />} />
                 </Routes>
-                </React.Suspense>
 
             </BrowserRouter>
+            </React.Suspense>
+
         </div>
    );
 }

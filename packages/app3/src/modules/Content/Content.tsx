@@ -28,43 +28,44 @@ export function Content({ onLogin }: ContentProps) {
 
     const handleLoginClick = useCallback(async () => {
         try {
+            console.log(52)
             // @ts-ignore
-            const response = await fetch(URL + '/user/session', {
-                method: "POST",
-                mode: 'cors',
-                cache: 'no-cache',
-                headers: {
-                    // @ts-ignore
-                    'Content-Type': 'application/json'
-                },
-                // @ts-ignore
-                body: JSON.stringify({
-                    email: email,
-                    password: password,
-                }),
-            });
-            const body = await response.json();
-
-            if (onLogin) {
-                if (body?.status === 'success') {
-                    onLogin({
-                        email: email,
-                        password: password,
-                        jwt: body.jwt.access,
-                        refresh: body.jwt.refresh,
-                        status: body.status,
-                    });
-                } else {
-                    onLogin({
-                        email: null,
-                        password: null,
-                        jwt: null,
-                        refresh: null,
-                        status: body.status,
-                    });
-                }
-
-            }
+            // const response = await fetch(URL + '/user/session', {
+            //     method: "POST",
+            //     mode: 'cors',
+            //     cache: 'no-cache',
+            //     headers: {
+            //         // @ts-ignore
+            //         'Content-Type': 'application/json'
+            //     },
+            //     // @ts-ignore
+            //     body: JSON.stringify({
+            //         email: email,
+            //         password: password,
+            //     }),
+            // });
+            // const body = await response.json();
+            //
+            // if (onLogin) {
+            //     if (body?.status === 'success') {
+            //         onLogin({
+            //             email: email,
+            //             password: password,
+            //             jwt: body.jwt.access,
+            //             refresh: body.jwt.refresh,
+            //             status: body.status,
+            //         });
+            //     } else {
+            //         onLogin({
+            //             email: null,
+            //             password: null,
+            //             jwt: null,
+            //             refresh: null,
+            //             status: body.status,
+            //         });
+            //     }
+            //
+            // }
         } catch (e) {
             onLogin({
                 email: null,

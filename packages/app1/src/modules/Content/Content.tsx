@@ -1,8 +1,4 @@
 import React, {useCallback, useState} from 'react';
-import {
-useNavigate
-} from "react-router-dom";
-
 
 const URL = "https://api.orcasecurity.io/api"
 

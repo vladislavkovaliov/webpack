@@ -4,13 +4,16 @@ export interface ICredentials {
 }
 
 export class LoginApi {
-    public constructor(url: string = process.env.REACT_APP_API_HOST) {
+    private readonly url: string;
 
+    public constructor(url: string) {
+        console.log(url)
+        this.url = url;
     }
 
     public signIn = async (credentials: ICredentials) => {
         try {
-            const response = await fetch(process.env.REACT_APP_API_HOST, {
+            const response = await fetch(this.url, {
                 method: "POST",
                 mode: 'cors',
                 cache: 'no-cache',

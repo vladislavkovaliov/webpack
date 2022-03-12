@@ -13,4 +13,5 @@ module.exports = merge(common, {
   output: {
     publicPath: "auto",
   },
+  devtool: 'eval-cheap-module-source-map',
 });
