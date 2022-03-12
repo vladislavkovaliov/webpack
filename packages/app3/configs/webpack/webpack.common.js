@@ -1,21 +1,54 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
-const { merge } = require('webpack-merge');
+const ASSET_PATH = process.env.ASSET_PATH || '/';
 
-const base = require('../../../../configs/webpack.config');
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          "style-loader",
+          "css-loader",
+          "postcss-loader"
+        ],
+      },
+    ],
+  },
 
-module.exports = merge(base, {
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+
+  entry: {
+    index: {
+      import: './src/index.tsx',
+    },
+  },
+
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, '../..', 'dist'),
+    clean: true,
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'App2',
+      title: 'App3',
       template: path.resolve(__dirname, '../..', 'src/index.html'),
     }),
 
     new ModuleFederationPlugin({
-      name: 'app2',
-      filename: 'app2.js',
+      name: 'app3',
+      filename: 'app3.js',
       remotes: {
         "store": "store@http://localhost:3000/store.js",
       },
@@ -26,5 +59,5 @@ module.exports = merge(base, {
       },
       shared: { react: { singleton: true }, 'react-dom': { singleton: true }, 'react-router-dom': { singleton: true } },
     }),
-  ]
-});
+  ],
+ };

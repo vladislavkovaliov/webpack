@@ -18,7 +18,7 @@ interface IModel {
     }
 };
 
-export function App() {
+export default function App() {
     const { login, setEmailAndPassword } = useStore();
     const [ models, setModels] = useState<IModel[]>([]);
 
