@@ -20,7 +20,7 @@ module.exports = merge(base, {
       name: 'login',
       filename: 'login.js',
       remotes: {
-        "store": process.env.ENV === "production" ? "store@http://localhost:51001/store.js" : "store@http://localhost:3000/store.js",
+        "store": process.env.ENV === "production" ? "store@https://webpack-ten.vercel.app/store.js" : "store@http://localhost:3000/store.js",
       },
       exposes: {
         './components':  path.resolve(__dirname, '../..', 'src/components'),
