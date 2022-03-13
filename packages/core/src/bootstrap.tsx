@@ -1,25 +1,46 @@
 import './styles.css';
 
-import React from 'react';
+import React  from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button } from 'app1/components';
+import {
+    Routes,
+    Route,
+} from "react-router-dom";
+
+const Login = React.lazy(() => import('login/login'));
+const AttackChains = React.lazy(() => import('attackChains/attackChains'));
+
+import { StoreProvider } from 'store/store';
 
 function App() {
     return (
-        <div className="mx-auto">
-            <h1 className="text-3xl underline">
-                Hello world!
-            </h1>
-            <div className="mb-4">
-                <p className="text-xl leading-tight">Adam Wathan</p>
-                <p className="text-sm leading-tight text-grey-dark">Developer at NothingWorks Inc.</p>
-            </div>
-            <React.Suspense fallback={"Loadinf..."} >
-                <Button />
+        <div className="h-full w-full">
+            <React.Suspense fallback={<div />} >
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/attack-chains" element={<AttackChains />} />
+                </Routes>
             </React.Suspense>
         </div>
     );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+function InitApplication() {
+    return (
+        <StoreProvider>
+            <App />
+        </StoreProvider>
+    );
+}
+
+function Home() {
+    return (
+        <div>
+            <h2>Home</h2>
+        </div>
+    );
+}
+
+ReactDOM.render(<React.StrictMode><InitApplication /></React.StrictMode>, document.getElementById('root'));
