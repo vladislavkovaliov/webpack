@@ -22,8 +22,8 @@ export class IdentityApi {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    email: credentials.email || 'vladislav.kovaliov@onthespotdev.com',
-                    password: credentials.password || 'Homepage!@3',
+                    email: credentials.email,
+                    password: credentials.password,
                 }),
             });
             const body = await  response.json();

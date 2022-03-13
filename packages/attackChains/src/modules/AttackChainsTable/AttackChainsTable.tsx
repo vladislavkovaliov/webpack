@@ -1,7 +1,6 @@
-import React, {useCallback, useState} from 'react';
+import React from 'react';
 import {useAttackChains} from "store/store";
 import { Table } from '../../components'
-import {map } from 'lodash';
 
 export function AttackChainsTable() {
     const { attackChains } = useAttackChains();
