@@ -1,62 +1,100 @@
 import { Provider, useSelector, useDispatch } from 'react-redux';
 import React from 'react';
 
-import { configureStore } from "@reduxjs/toolkit";
-import { loginSlice, doLogin } from './stores/login/slice';
+import { BrowserRouter } from "react-router-dom";
+
+import {AnyAction, configureStore} from "@reduxjs/toolkit";
+
+/**
+ * Slice importing place
+ */
+import {signInThunk, identitySlice} from './stores/identity/slice';
+import {errorSlice} from "./stores/error/slice";
+import {attackChainsSlice, fetchAttackChains} from "./stores/attackChains/slice";
+
 import thunkMiddleware  from 'redux-thunk';
 
-// TODO: define index.ts for api
-import { LoginApi } from './apis/login';
+import {IdentityApi, SonarApi} from './apis';
+import {Dispatch} from "redux";
 
-// import { API_HOST } from "../constants/envrionment";
-
-// console.log(API_HOST)
-// const url = process.env.REACT_APP_API_HOST;
-console.log(process.env)
 /**
  * Place to inject service if you'd like to share them.
  */
-const thunkMiddlewareWithArg = thunkMiddleware.withExtraArgument({
-    loginApi: new LoginApi('asf'),
+export interface IExtraArgument {
+    api: {
+        identity: IdentityApi,
+        sonar: SonarApi,
+    }
+}
+
+const thunkMiddlewareWithArg = thunkMiddleware.withExtraArgument<IExtraArgument>({
+    api: {
+        identity: new IdentityApi(process.env.API_HOST),
+        sonar: new SonarApi(process.env.API_HOST),
+    },
 })
+
+export const authMiddleware = (store: any) => (next: Dispatch<AnyAction>) => (action: AnyAction) => {
+    try {
+        const { identity } = store.getState();
+        const { jwt } = identity;
+
+        localStorage.setItem("jwt", jwt);
+    } catch (e) {
+        localStorage.clear();
+    }
+    finally {
+        next(action);
+    }
+}
 
 export const store = configureStore({
     reducer: {
-        login: loginSlice.reducer,
+        identity: identitySlice.reducer,
+        error: errorSlice.reducer,
+        attackChains: attackChainsSlice.reducer,
     },
-    middleware: [thunkMiddlewareWithArg],
+    middleware: [thunkMiddlewareWithArg, authMiddleware],
 });
 
 export type RootState = ReturnType<typeof store.getState>;
 
-export function useStore() {
-    const login = useSelector((state: RootState) => state.login);
+// TODO: export into diff folder
+export function useStore(name: keyof RootState) {
+    const extractedStore = useSelector<RootState>((state) => state[name]);
+
+    return {
+        [name]: extractedStore,
+    };
+}
+
+export function useIdentity() {
+    const identity = useSelector<RootState>((state) => state.identity);
     const dispatch = useDispatch();
 
     return {
-        /** Login slice and actions. */
-        login,
-        doLogin: (email: string, password: string) => {
-            debugger;
-        },
-        setEmailAndPassword: (payload: any) => dispatch(loginSlice.actions.setEmailAndPassword(payload)),
-    }
+        identity,
+        signIn: (email: string, password: string) => dispatch(signInThunk(email, password)),
+    };
 }
 
-export function useLogin() {
+export function useAttackChains() {
+    const attackChains = useSelector<RootState>((state) => state.attackChains);
     const dispatch = useDispatch();
 
     return {
-        signIn: () => {
-            console.log('signIn')
-        }
+        attackChains,
+        // TODO: implement passing params
+        fetchAttackChains: () => dispatch(fetchAttackChains()),
     }
 }
 
+
+// TODO: export into somewhere
 export function StoreProvider({ children }: { children: JSX.Element }) {
     return (
         <Provider store={store}>
-            {children}
+            <BrowserRouter>{children}</BrowserRouter>
         </Provider>
-    )
+    );
 }

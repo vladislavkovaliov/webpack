@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-const dotenv = require('dotenv');
 
 const { merge } = require('webpack-merge');
 
@@ -13,15 +12,20 @@ module.exports = merge(base, {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Store',
+      title: 'Attack Chains',
       template: path.resolve(__dirname, '../..', 'src/index.html'),
     }),
 
     new ModuleFederationPlugin({
-      name: "store",
-      filename: 'store.js',
+      name: 'attackChains',
+      filename: 'attackChains.js',
+      remotes: {
+        "store": "store@http://localhost:3000/store.js",
+      },
       exposes: {
-        "./store": path.resolve(__dirname, '../..', 'src/store'),
+        './components':  path.resolve(__dirname, '../..', 'src/components'),
+        './modules':  path.resolve(__dirname, '../..', 'src/modules'),
+        './attackChains': path.resolve(__dirname, '../..', 'src/attackChains'),
       },
       shared: { react: { singleton: true }, 'react-dom': { singleton: true }, 'react-router-dom': { singleton: true } },
     }),

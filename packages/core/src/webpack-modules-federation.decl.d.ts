@@ -1,4 +1,3 @@
-declare module "app1/login";
 declare module "store/store";
-declare module "app2/attackChains";
-declare module "app3/attackChains";
+declare module "attackChains/attackChains";
+declare module "login/login";

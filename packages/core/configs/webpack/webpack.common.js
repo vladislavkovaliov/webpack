@@ -7,7 +7,10 @@ const { merge } = require('webpack-merge');
 const base = require('../../../../configs/webpack.config');
 
 module.exports = merge(base, {
- plugins: [
+output: {
+    path: path.resolve(__dirname, '../..', 'dist'),
+},
+  plugins: [
    new HtmlWebpackPlugin({
      title: 'Core',
      template: path.resolve(__dirname, '../..', 'src/index.html'),
@@ -16,10 +19,9 @@ module.exports = merge(base, {
    new ModuleFederationPlugin({
      name: "core",
      remotes: {
-       "app1": "app1@http://localhost:3002/app1.js",
-       "app2": "app2@http://localhost:3003/app2.js",
-       "app3": "app3@http://localhost:3004/app3.js",
        "store": "store@http://localhost:3000/store.js",
+       "login": "login@http://localhost:3002/login.js",
+       "attackChains": "attackChains@http://localhost:3003/attackChains.js",
      },
      shared: { react: { singleton: true }, 'react-dom': { singleton: true }, 'react-router-dom': { singleton: true } },
    }),

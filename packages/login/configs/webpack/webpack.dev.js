@@ -6,10 +6,10 @@ module.exports = merge(common, {
   mode: 'development',
 
   devServer: {
-    port: 3000,
+    port: 3002,
   },
-  
+
   output: {
-    publicPath: "http://localhost:3000/",
+    publicPath: 'http://localhost:3002/',
   },
 });

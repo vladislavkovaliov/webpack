@@ -6,11 +6,10 @@ module.exports = merge(common, {
   mode: 'development',
 
   devServer: {
-    static: path.join(__dirname, "dist"),
     port: 3001,
   },
   
   output: {
-    publicPath: "auto",
+    publicPath: "http://localhost:3001/",
   },
 });
