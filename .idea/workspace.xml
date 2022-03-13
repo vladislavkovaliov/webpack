@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73e27f82-d12c-4eec-97dd-8be2d41db293" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attackChains/configs/webpack/webpack.common.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attackChains/configs/webpack/webpack.common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/core/configs/webpack/webpack.common.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/configs/webpack/webpack.common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/login/configs/webpack/webpack.common.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/login/configs/webpack/webpack.common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/dist/203.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/dist/203.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/dist/356.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/dist/356.bundle.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
