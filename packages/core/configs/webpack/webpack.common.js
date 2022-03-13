@@ -20,8 +20,8 @@ output: {
      name: "core",
      remotes: {
        "store": process.env.ENV === "production" ? "store@https://webpack-ten.vercel.app/store.js" : "store@http://localhost:3000/store.js",
-       "login": process.env.ENV === "production" ? "https://login-qup2qt20f-vladislavkovaliov.vercel.app/login.js" : "login@http://localhost:3002/login.js",
-       "attackChains": process.env.ENV === "production" ? "https://attack-chains.vercel.app/attackChains.js" : "attackChains@http://localhost:3003/attackChains.js",
+       "login": process.env.ENV === "production" ? "login@https://login-qup2qt20f-vladislavkovaliov.vercel.app/login.js" : "login@http://localhost:3002/login.js",
+       "attackChains": process.env.ENV === "production" ? "attackChains@https://attack-chains.vercel.app/attackChains.js" : "attackChains@http://localhost:3003/attackChains.js",
      },
      shared: { react: { singleton: true }, 'react-dom': { singleton: true }, 'react-router-dom': { singleton: true } },
    }),
