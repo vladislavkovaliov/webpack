@@ -1,17 +1,15 @@
 import './styles.css';
 
-import React  from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {
-    Routes,
-    Route,
-} from "react-router-dom";
+import {Route, Routes,} from "react-router-dom";
+import {StoreProvider} from 'store/store';
+
+import {PrivateRoute, Roles} from "./modules";
 
 const Login = React.lazy(() => import('login/login'));
 const AttackChains = React.lazy(() => import('attackChains/attackChains'));
-
-import { StoreProvider } from 'store/store';
 
 function App() {
     return (
@@ -20,7 +18,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/login" element={<Login />} />
-                    <Route path="/attack-chains" element={<AttackChains />} />
+                    <Route path="/attack-chains" element={<PrivateRoute roles={[Roles.Admin]} component={AttackChains} />} />
                 </Routes>
             </React.Suspense>
         </div>

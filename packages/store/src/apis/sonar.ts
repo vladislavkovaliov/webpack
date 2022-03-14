@@ -15,7 +15,6 @@ export class SonarApi {
 
     public query = async (query: ISonarQuery) => {
         try {
-
             const jwt = localStorage.getItem('jwt');
             const response = await fetch(this.url + '/sonar/query?' + this.toParams({
                 query: query,

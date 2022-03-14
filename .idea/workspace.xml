@@ -2,9 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73e27f82-d12c-4eec-97dd-8be2d41db293" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/packages/attackChains/src/components/Accordion/Accordion.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/core/src/modules/PrivateRoute/PrivateRoute.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/core/src/modules/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/store/src/hooks/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/store/src/hooks/useAttackChains.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/store/src/hooks/useIdentity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/store/src/hooks/useReduxStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/store/src/middlewares/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/store/src/middlewares/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/store/src/middlewares/persist.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attackChains/configs/webpack/webpack.common.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attackChains/configs/webpack/webpack.common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/login/configs/webpack/webpack.common.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/login/configs/webpack/webpack.common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/attackChains/src/attackChains.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attackChains/src/attackChains.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/attackChains/src/components/Table/Table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attackChains/src/components/Table/Table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/attackChains/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attackChains/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/attackChains/src/modules/AttackChainsTable/AttackChainsTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attackChains/src/modules/AttackChainsTable/AttackChainsTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/bootstrap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/bootstrap.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/store/src/apis/sonar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/src/apis/sonar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/store/src/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/src/store.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,5 +78,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

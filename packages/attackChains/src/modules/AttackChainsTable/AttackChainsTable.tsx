@@ -8,7 +8,7 @@ export function AttackChainsTable() {
     // code logic, transfomation etc
 
     return (
-        <div className="">
+        <div className="container mx-auto bg-grey-500 py-8">
             <Table data={attackChains.data.models} />
         </div>
     )
