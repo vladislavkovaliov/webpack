@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './styles.css';
-import {useStore, useAttackChains} from "store/store";
+import {useReduxStore, useAttackChains} from "store/store";
 import {useNavigate} from "react-router-dom";
 import {AttackChainsTable} from "./modules";
 
 export default function AttackChains() {
-    const { identity } = useStore('identity');
+    const { identity } = useReduxStore('identity');
     const { fetchAttackChains, attackChains } = useAttackChains();
 
     const navigate = useNavigate();
