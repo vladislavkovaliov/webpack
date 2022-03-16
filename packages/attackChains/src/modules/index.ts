@@ -1,1 +1,1 @@
-export { AttackChainsTable } from './AttackChainsTable/AttackChainsTable';
+export { AttackChainsTable } from "./AttackChainsTable/AttackChainsTable";

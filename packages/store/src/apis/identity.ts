@@ -1,7 +1,6 @@
-
 export interface ICredentials {
-   email: string;
-   password: string;
+    email: string;
+    password: string;
 }
 
 export class IdentityApi {
@@ -14,23 +13,23 @@ export class IdentityApi {
     public signIn = async (credentials: ICredentials) => {
         try {
             // TODO: implement wrapper on fetch
-            const response = await fetch(this.url + '/user/session', {
-                method: 'POST',
-                mode: 'cors',
-                cache: 'no-cache',
+            const response = await fetch(this.url + "/user/session", {
+                method: "POST",
+                mode: "cors",
+                cache: "no-cache",
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
                     email: credentials.email,
                     password: credentials.password,
                 }),
             });
-            const body = await  response.json();
+            const body = await response.json();
 
-            if (body?.status === 'success') {
+            if (body?.status === "success") {
                 return {
-                    email: credentials.email || 'system_testing@orca.security',
+                    email: credentials.email || "system_testing@orca.security",
                     jwt: body.jwt.access,
                     refresh: body.jwt.refresh,
                     status: body.status,
@@ -38,10 +37,10 @@ export class IdentityApi {
             } else {
                 return {
                     error: new Error(body?.error),
-                    type: 'signIn',
-                }
+                    type: "signIn",
+                };
             }
-        } catch (e) {
+        } catch (e: any) {
             throw Error(e.message);
         }
     };

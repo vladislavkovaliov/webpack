@@ -1,6 +1,6 @@
-import {useDispatch, useSelector} from "react-redux";
-import {signInThunk} from "../stores/identity/slice";
-import {RootState} from "../store";
+import { useDispatch, useSelector } from "react-redux";
+import { signInThunk } from "../stores/identity/slice";
+import { RootState } from "../store";
 
 export function useIdentity() {
     const identity = useSelector<RootState>((state) => state.identity);
@@ -8,6 +8,7 @@ export function useIdentity() {
 
     return {
         identity,
-        signIn: (email: string, password: string) => dispatch(signInThunk(email, password)),
+        signIn: (email: string, password: string) =>
+            dispatch(signInThunk(email, password)),
     };
 }

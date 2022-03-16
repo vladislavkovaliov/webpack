@@ -6,8 +6,7 @@ export interface TitleProps {
     length: number;
 }
 
-export function Title({ text, length }: TitleProps
-) {
+export function Title({ text, length }: TitleProps) {
     return (
         <>
             {text} <span className="font-bold">({length}) </span>
@@ -38,14 +37,16 @@ export function Accordion({ title, length, children, depth }: AccordionProps) {
                 <div className="font-light">{title}</div>
                 <div>
                     <span className="font-bold">{length} </span>
-                    <span className="font-light">{length > 1 ? "items" : "item"}</span>
+                    <span className="font-light">
+                        {length > 1 ? "items" : "item"}
+                    </span>
                 </div>
             </div>
             <div
                 style={{
                     // Dirty hack because there is no possible to setup tailwind config
                     transition: "max-height 0.3s ease-out 0s",
-                    maxHeight: active ? "1000px" : "0"
+                    maxHeight: active ? "1000px" : "0",
                 }}
                 className={`overflow-hidden h-auto`}
             >
