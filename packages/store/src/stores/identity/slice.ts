@@ -63,19 +63,19 @@ export const signInThunk =
                 password: password,
             });
 
-            if (data.error) {
-                dispatch(setErrorMessage({ message: data.error.message }));
-            } else {
-                dispatch(
-                    signIn({
-                        email: email,
-                        jwt: data.jwt,
-                        refresh: data.refresh,
-                        status: data.status,
-                        loading: false,
-                    })
-                );
-            }
+            // if (data.error) {
+            //     dispatch(setErrorMessage({ message: data.error.message }));
+            // } else {
+            //     dispatch(
+            //         signIn({
+            //             email: email,
+            //             jwt: data.jwt,
+            //             refresh: data.refresh,
+            //             status: data.status,
+            //             loading: false,
+            //         })
+            //     );
+            // }
         } catch (e) {
             console.error(e);
         }

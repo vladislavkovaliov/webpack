@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useIdentity } from "store/store";
+import { IdentityApi } from "store/store";
 
 export function Content() {
     const navigate = useNavigate();
-    const { signIn, identity } = useIdentity();
 
+    const [status, setStatus] = useState<string>("failed");
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
 
@@ -16,13 +16,22 @@ export function Content() {
         setPassword(event.target.value);
     }, []);
 
-    const handleLoginClick = useCallback(() => {
-        signIn(email, password);
-    }, [email, password, signIn]);
+    const handleLoginClick = useCallback(async () => {
+        const { status } = await IdentityApi.getInstance().signIn({
+            email: email,
+            password: password,
+        });
+
+        setStatus(status);
+    }, [email, password]);
+
+    console.log(status);
 
     useEffect(() => {
-        identity.status === "success" && navigate("/attack-chains");
-    }, [navigate, identity.status]);
+        if (status === "success") {
+            navigate("/attack-chains");
+        }
+    }, [navigate, status]);
 
     return (
         <div className="flex flex-col space-y-4">

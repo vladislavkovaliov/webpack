@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73e27f82-d12c-4eec-97dd-8be2d41db293" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/attackChains/src/attackChains.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attackChains/src/attackChains.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/modules/PrivateRoute/PrivateRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/modules/PrivateRoute/PrivateRoute.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/login/src/modules/Content/Content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/login/src/modules/Content/Content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/login/src/webpack-modules-federation.decl.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/login/src/webpack-modules-federation.decl.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared-types/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared-types/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/store/src/apis/identity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/src/apis/identity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/store/src/apis/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/src/apis/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/store/src/middlewares/persist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/src/middlewares/persist.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/store/src/pubSub/Subject.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/src/pubSub/Subject.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/store/src/pubSub/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/src/pubSub/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/store/src/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/src/store.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/store/src/stores/identity/slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/src/stores/identity/slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/store/src/webpack-modules-federation.decl.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/src/webpack-modules-federation.decl.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

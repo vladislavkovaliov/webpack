@@ -8,7 +8,7 @@ export interface ISubject {
     notify(): void;
 }
 
-class Subject implements ISubject {
+export class Subject implements ISubject {
     public state: number;
     public pool: any[];
 

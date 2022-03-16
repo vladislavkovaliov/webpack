@@ -1,22 +1,34 @@
 import React, { useEffect } from "react";
 import "./styles.css";
-import { useReduxStore, useAttackChains } from "store/store";
+import { useAttackChains } from "store/store";
 import { useNavigate } from "react-router-dom";
 import { AttackChainsTable } from "./modules";
+import { EventBus } from "store/store";
+import { IdentityPayload } from "shared-types";
 
 export default function AttackChains() {
-    const { identity } = useReduxStore("identity");
     const { fetchAttackChains, attackChains } = useAttackChains();
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        identity.status !== "success" && navigate("/login");
-    }, [navigate, identity.status]);
+        const unregister = EventBus.getInstance().register(
+            "identity",
+            (identity: IdentityPayload) => {
+                if (identity.status !== "success") {
+                    navigate("/login");
+                }
+            }
+        );
+
+        return () => {
+            unregister();
+        };
+    }, [navigate]);
 
     useEffect(() => {
         fetchAttackChains();
-    }, [fetchAttackChains]);
+    }, []);
 
     if (attackChains.loading) {
         return <div>loading...</div>;
