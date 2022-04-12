@@ -1,3 +1,6 @@
+import { EventBus } from "../store";
+import { IdentityPayload, IdentityErrorPayload } from "shared-types";
+
 export interface ICredentials {
     email: string;
     password: string;
@@ -6,11 +9,25 @@ export interface ICredentials {
 export class IdentityApi {
     private readonly url: string;
 
-    public constructor(url: string) {
+    private static instance?: IdentityApi = undefined;
+
+    private constructor(url: string) {
         this.url = url;
     }
 
-    public signIn = async (credentials: ICredentials) => {
+    public static getInstance(
+        url: string = process.env.API_HOST!
+    ): IdentityApi {
+        if (this.instance === undefined) {
+            this.instance = new IdentityApi(url);
+        }
+
+        return this.instance;
+    }
+
+    public signIn = async (
+        credentials: ICredentials
+    ): Promise<IdentityPayload | IdentityErrorPayload> => {
         try {
             // TODO: implement wrapper on fetch
             const response = await fetch(this.url + "/user/session", {
@@ -28,8 +45,15 @@ export class IdentityApi {
             const body = await response.json();
 
             if (body?.status === "success") {
+                EventBus.getInstance().dispatch<IdentityPayload>("identity", {
+                    email: credentials.email,
+                    jwt: body.jwt.access,
+                    refresh: body.jwt.refresh,
+                    status: body.status,
+                });
+
                 return {
-                    email: credentials.email || "system_testing@orca.security",
+                    email: credentials.email,
                     jwt: body.jwt.access,
                     refresh: body.jwt.refresh,
                     status: body.status,

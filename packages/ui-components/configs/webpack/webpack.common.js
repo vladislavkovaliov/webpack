@@ -12,19 +12,15 @@ module.exports = merge(base, {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Login',
+      title: 'Components',
       template: path.resolve(__dirname, '../..', 'src/index.html'),
     }),
 
     new ModuleFederationPlugin({
-      name: 'login',
-      filename: 'login.js',
-      remotes: {
-        "store": process.env.ENV === "production" ? "store@https://webpack-ten.vercel.app/store.js" : "store@http://localhost:3000/store.js",
-        "ui_components": process.env.ENV === "production" ? "store@https://webpack-ten.vercel.app/store.js" : "ui_components@http://localhost:3005/ui_components.js",
-      },
+      name: 'ui_components',
+      filename: 'ui_components.js',
       exposes: {
-        './login': path.resolve(__dirname, '../..', 'src/login'),
+        './ui_components': path.resolve(__dirname, '../..', 'src/components'),
       },
       shared: { react: { singleton: true }, 'react-dom': { singleton: true }, 'react-router-dom': { singleton: true } },
     }),

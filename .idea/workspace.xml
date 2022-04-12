@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73e27f82-d12c-4eec-97dd-8be2d41db293" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/packages/store/src/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/src/store.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/store/dist/356.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/dist/356.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/store/dist/896.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/dist/896.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/store/dist/index.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/dist/index.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/store/dist/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/store/dist/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,6 +16,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -29,7 +35,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
@@ -37,17 +43,19 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages" />
+      <recent name="$PROJECT_DIR$/packages/ui-components/src" />
+      <recent name="$PROJECT_DIR$/packages/ui-components" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/packages/shared-types" />
-      <recent name="$PROJECT_DIR$/packages" />
-      <recent name="$PROJECT_DIR$/packages/app2/src" />
-      <recent name="$PROJECT_DIR$/packages/app3/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/ui-components/src/components/Button" />
+      <recent name="$PROJECT_DIR$/packages/ui-components/src" />
       <recent name="$PROJECT_DIR$/packages/store/src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.lint">
     <configuration name="format" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -58,8 +66,19 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.lint" />
         <item itemvalue="npm.format" />
       </list>
     </recent_temporary>
@@ -76,6 +95,8 @@
       <workItem from="1647009289391" duration="2406000" />
       <workItem from="1647012052151" duration="31750000" />
       <workItem from="1647414668284" duration="3634000" />
+      <workItem from="1647520978735" duration="216000" />
+      <workItem from="1649781880377" duration="6245000" />
     </task>
     <servers />
   </component>

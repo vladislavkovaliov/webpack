@@ -8,7 +8,7 @@ export const persist: Middleware<{}, RootState> =
         const savedStore = store.getState().identity;
 
         sessionStorage.setItem("identity", JSON.stringify({ ...savedStore }));
-
+        console.log(45);
         // TODO: remove it later
         localStorage.setItem("jwt", savedStore.jwt!);
 
