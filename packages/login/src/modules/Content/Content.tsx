@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IdentityApi } from "store/store";
+import { Button, Input } from "ui_components/ui_components";
 
 export function Content() {
     const navigate = useNavigate();
@@ -25,8 +26,6 @@ export function Content() {
         setStatus(status);
     }, [email, password]);
 
-    console.log(status);
-
     useEffect(() => {
         if (status === "success") {
             navigate("/attack-chains");
@@ -37,35 +36,27 @@ export function Content() {
         <div className="flex flex-col space-y-4">
             <div className="flex flex-col flex-start text-left">
                 <label htmlFor="email">Email</label>
-                <input
+                <Input
                     onChange={handleEmailChange}
-                    className="py-1 px-2 outline-none bg-slate-800 text-white"
+                    value={email}
                     name="email"
                     id="email"
-                    type="text"
-                    value={email}
                 />
             </div>
 
             <div className="flex flex-col flex-start text-left">
                 <label htmlFor="password">Password</label>
-                <input
+                <Input
                     onChange={handlePasswordChange}
-                    className="py-1 px-2 outline-none bg-slate-800 text-white"
+                    value={password}
+                    type="password"
                     name="password"
                     id="password"
-                    type="text"
-                    value={password}
                 />
             </div>
 
             <div className="flex flex-col">
-                <button
-                    className="bg-sky-500 uppercase"
-                    onClick={handleLoginClick}
-                >
-                    login
-                </button>
+                <Button onClick={handleLoginClick} text="te" />
             </div>
         </div>
     );
