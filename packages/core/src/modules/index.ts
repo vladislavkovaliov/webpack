@@ -1,1 +1,1 @@
-export { PrivateRoute, Roles } from './PrivateRoute/PrivateRoute';
+export { PrivateRoute, Roles } from "./PrivateRoute/PrivateRoute";

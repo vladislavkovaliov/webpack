@@ -31,14 +31,12 @@ module.exports = {
 
     entry: {
         index: {
-            import: './src/index.tsx',
+            import: './src/index.ts',
         },
     },
 
     output: {
         filename: '[name].bundle.js',
-        // path: path.resolve(__dirname, '../..', 'dist'),
-        // clean: true,
     },
 
     plugins: [

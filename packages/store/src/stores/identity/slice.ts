@@ -5,17 +5,16 @@ import {
     ThunkAction,
 } from "@reduxjs/toolkit";
 
-import {setErrorMessage} from '../error/slice';
-import {IExtraArgument, RootState} from "../../store";
-
+import { setErrorMessage } from "../error/slice";
+import { IExtraArgument, RootState } from "../../store";
 
 export interface IdentitySliceState {
-    email: string | null,
-    password: string | null,
-    jwt: string | null,
-    refresh: string | null,
-    status: string | null,
-    loading: boolean,
+    email: string | null;
+    password: string | null;
+    jwt: string | null;
+    refresh: string | null;
+    status: string | null;
+    loading: boolean;
 }
 
 export const initialState: IdentitySliceState = {
@@ -25,12 +24,12 @@ export const initialState: IdentitySliceState = {
     refresh: null,
     status: null,
     loading: false,
-}
+};
 
 export type SignInPayload = Omit<IdentitySliceState, "password">;
 
 export const identitySlice = createSlice({
-    name: 'identity',
+    name: "identity",
     initialState: initialState,
     reducers: {
         loading: (state) => {
@@ -48,29 +47,36 @@ export const identitySlice = createSlice({
 
 export const { signIn, loading } = identitySlice.actions;
 
-export const signInThunk = (email: string, password: string): ThunkAction<void, RootState, IExtraArgument, AnyAction> => async (dispatch, getState, extraArguments) => {
-    const { api } = extraArguments;
+export const signInThunk =
+    (
+        email: string,
+        password: string
+    ): ThunkAction<void, RootState, IExtraArgument, AnyAction> =>
+    async (dispatch, getState, extraArguments) => {
+        const { api } = extraArguments;
 
-    try {
-        dispatch(loading());
+        try {
+            dispatch(loading());
 
-        const data = await api.identity.signIn({
-            email: email,
-            password: password,
-        });
-
-        if (data.error) {
-            dispatch(setErrorMessage({ message: data.error.message }));
-        } else {
-            dispatch(signIn({
+            const data = await api.identity.signIn({
                 email: email,
-                jwt: data.jwt,
-                refresh: data.refresh,
-                status: data.status,
-                loading: false,
-            }));
+                password: password,
+            });
+
+            // if (data.error) {
+            //     dispatch(setErrorMessage({ message: data.error.message }));
+            // } else {
+            //     dispatch(
+            //         signIn({
+            //             email: email,
+            //             jwt: data.jwt,
+            //             refresh: data.refresh,
+            //             status: data.status,
+            //             loading: false,
+            //         })
+            //     );
+            // }
+        } catch (e) {
+            console.error(e);
         }
-    } catch(e) {
-        console.error(e);
-    }
-}
+    };

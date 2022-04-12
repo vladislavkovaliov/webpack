@@ -1,6 +1,5 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-import { useReduxStore } from 'store/store';
+import React, { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 export enum Roles {
     Admin = "admin",
@@ -11,13 +10,35 @@ export interface PrivateRouteProps {
     roles: Array<Roles>;
 }
 
-export function PrivateRoute({ component: RouteComponent, roles }: PrivateRouteProps) {
-    const { identity } = useReduxStore('identity');
+export function useAuthorized() {
+    const [isAuthorized, _] = useState(() => {
+        try {
+            const identity = JSON.parse(
+                sessionStorage.getItem("identity") as string
+            );
+
+            return Boolean(identity.jwt);
+        } catch (e) {
+            return false;
+        }
+    });
+
+    return {
+        isAuthorized,
+    };
+}
+
+export function PrivateRoute({
+    component: RouteComponent,
+    roles,
+}: PrivateRouteProps) {
+    const { isAuthorized } = useAuthorized();
+
     const hasAccess = true; // roles.includes()
 
-    if (identity.jwt && hasAccess) {
-        return <RouteComponent />
+    if (isAuthorized && hasAccess) {
+        return <RouteComponent />;
     }
 
-    return <Navigate to="/login" />
+    return <Navigate to="/login" />;
 }

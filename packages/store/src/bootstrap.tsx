@@ -1,17 +1,14 @@
-import './styles.css';
+import "./styles.css";
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-
+import React from "react";
+import ReactDOM from "react-dom";
 
 function App() {
-    return <div></div>
+    return <div></div>;
 }
 
 function InitApplication() {
-    return (
-            <App />
-    );
+    return <App />;
 }
 
-ReactDOM.render(<InitApplication />, document.getElementById('root'));
+ReactDOM.render(<InitApplication />, document.getElementById("root"));

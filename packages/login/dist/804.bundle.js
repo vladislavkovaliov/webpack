@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklogin=self.webpackChunklogin||[]).push([[804],{804:(n,e,t)=>{t.r(e),t.d(e,{Button:()=>r});var u=t(820),l=t.n(u);function r(){return l().createElement("button",null,"app1")}}}]);

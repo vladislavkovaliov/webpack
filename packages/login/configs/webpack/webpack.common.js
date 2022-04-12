@@ -21,10 +21,9 @@ module.exports = merge(base, {
       filename: 'login.js',
       remotes: {
         "store": process.env.ENV === "production" ? "store@https://webpack-ten.vercel.app/store.js" : "store@http://localhost:3000/store.js",
+        "ui_components": process.env.ENV === "production" ? "store@https://webpack-ten.vercel.app/store.js" : "ui_components@http://localhost:3005/ui_components.js",
       },
       exposes: {
-        './components':  path.resolve(__dirname, '../..', 'src/components'),
-        './modules':  path.resolve(__dirname, '../..', 'src/modules'),
         './login': path.resolve(__dirname, '../..', 'src/login'),
       },
       shared: { react: { singleton: true }, 'react-dom': { singleton: true }, 'react-router-dom': { singleton: true } },

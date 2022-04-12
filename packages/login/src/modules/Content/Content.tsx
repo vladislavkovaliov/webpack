@@ -1,13 +1,14 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {useNavigate} from "react-router-dom";
-import {useIdentity} from "store/store";
+import React, { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { IdentityApi } from "store/store";
+import { Button, Input } from "ui_components/ui_components";
 
 export function Content() {
     const navigate = useNavigate();
-    const { signIn, identity } = useIdentity();
 
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+    const [status, setStatus] = useState<string>("failed");
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
 
     const handleEmailChange = useCallback((event) => {
         setEmail(event.target.value);
@@ -16,27 +17,47 @@ export function Content() {
         setPassword(event.target.value);
     }, []);
 
-    const handleLoginClick = useCallback(() => {
-        signIn(email, password);
-    }, [email, password, navigate]);
+    const handleLoginClick = useCallback(async () => {
+        const { status } = await IdentityApi.getInstance().signIn({
+            email: email,
+            password: password,
+        });
 
-    useEffect(() => identity.status === 'success' && navigate('/attack-chains'), [navigate, identity.status]);
+        setStatus(status);
+    }, [email, password]);
+
+    useEffect(() => {
+        if (status === "success") {
+            navigate("/attack-chains");
+        }
+    }, [navigate, status]);
 
     return (
         <div className="flex flex-col space-y-4">
             <div className="flex flex-col flex-start text-left">
                 <label htmlFor="email">Email</label>
-                <input onChange={handleEmailChange} className="py-1 px-2 outline-none bg-slate-800 text-white" name="email" id="email" type="text" value={email} />
+                <Input
+                    onChange={handleEmailChange}
+                    value={email}
+                    name="email"
+                    id="email"
+                />
             </div>
 
             <div className="flex flex-col flex-start text-left">
                 <label htmlFor="password">Password</label>
-                <input onChange={handlePasswordChange} className="py-1 px-2 outline-none bg-slate-800 text-white" name="password" id="password" type="text" value={password} />
+                <Input
+                    onChange={handlePasswordChange}
+                    value={password}
+                    type="password"
+                    name="password"
+                    id="password"
+                />
             </div>
 
             <div className="flex flex-col">
-                <button className="bg-sky-500 uppercase" onClick={handleLoginClick}>login</button>
+                <Button onClick={handleLoginClick} text="te" />
             </div>
         </div>
-    )
+    );
 }

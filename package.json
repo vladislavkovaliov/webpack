@@ -4,8 +4,13 @@
   "description": "",
   "private": true,
   "scripts": {
+    "prepare": "./node_modules/.bin/husky install",
+    "build": "wsrun --parallel build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"wsrun --parallel start\""
+    "start": "concurrently \"wsrun --parallel start\"",
+    "format": "prettier --write packages/**/*.ts{,x}",
+    "lint": "tsc --noEmit && eslint packages/**/*.ts{,x}",
+    "commit": "commit"
   },
   "keywords": [],
   "author": "Vladislav Kovaliov",
@@ -13,10 +18,45 @@
   "workspaces": [
     "packages/*"
   ],
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "yarn lint",
+      "yarn format",
+      "git add"
+    ]
+  },
   "devDependencies": {
-    "concurrently": "^7.0.0",
+    "@commitlint/cli": "16.0.1",
+    "@commitlint/config-conventional": "16.0.0",
+    "@commitlint/prompt-cli": "16.0.0",
+    "@typescript-eslint/eslint-plugin": "4.31.2",
+    "@typescript-eslint/parser": "4.31.2",
+    "babel-eslint": "10.1.0",
+    "eslint": "7.2.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-airbnb-typescript": "14.0.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-config-react-app": "6.0.0",
+    "eslint-plugin-flowtype": "6.1.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jest": "24.4.2",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.21.5",
+    "eslint-plugin-react-hooks": "1.7.0",
+    "eslint-plugin-testing-library": "4.12.4",
+    "husky": "7.0.2",
+    "lint-staged": "12.1.4",
+    "prettier": "2.4.1",
+    "concurrently": "7.0.0",
     "css-loader": "6.7.0",
-    "dotenv-webpack": "^7.1.0",
+    "dotenv-webpack": "7.1.0",
     "postcss": "8.4.8",
     "postcss-cli": "9.1.0",
     "postcss-loader": "6.2.1",
@@ -27,10 +67,8 @@
     "webpack": "5.69.1",
     "webpack-cli": "4.9.2",
     "webpack-dev-middleware": "5.3.1",
-    "wsrun": "^5.2.4"
-  },
-  "dependencies": {
-    "dotenv": "^16.0.0",
+    "wsrun": "5.2.4",
+    "dotenv": "16.0.0",
     "webpack-dev-server": "4.7.4",
     "webpack-merge": "5.8.0"
   }
