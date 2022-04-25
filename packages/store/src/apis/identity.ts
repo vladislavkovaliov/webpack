@@ -1,4 +1,3 @@
-import { EventBus } from "../store";
 import { IdentityPayload, IdentityErrorPayload } from "shared-types";
 
 export interface ICredentials {
@@ -45,13 +44,6 @@ export class IdentityApi {
             const body = await response.json();
 
             if (body?.status === "success") {
-                EventBus.getInstance().dispatch<IdentityPayload>("identity", {
-                    email: credentials.email,
-                    jwt: body.jwt.access,
-                    refresh: body.jwt.refresh,
-                    status: body.status,
-                });
-
                 return {
                     email: credentials.email,
                     jwt: body.jwt.access,
