@@ -7,9 +7,9 @@ import { Route, Routes } from "react-router-dom";
 import { StoreProvider } from "store/store";
 
 import { PrivateRoute, Roles } from "./modules";
+import { LoginPage } from "./pages";
 
-const Login = React.lazy(() => import("login/login"));
-const AttackChains = React.lazy(() => import("attackChains/attackChains"));
+const AttackChainsPage = React.lazy(() => import("attackChains/attackChains"));
 
 function App() {
     return (
@@ -17,13 +17,18 @@ function App() {
             <React.Suspense fallback={<div />}>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
                     <Route
-                        path="/attack-chains"
+                        path="/login"
+                        element={
+                            <LoginPage defaultPageRedirect="/attack-paths" />
+                        }
+                    />
+                    <Route
+                        path="/attack-paths"
                         element={
                             <PrivateRoute
                                 roles={[Roles.Admin]}
-                                component={AttackChains}
+                                component={AttackChainsPage}
                             />
                         }
                     />
