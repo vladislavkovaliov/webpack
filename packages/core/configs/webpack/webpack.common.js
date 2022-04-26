@@ -19,9 +19,10 @@ output: {
    new ModuleFederationPlugin({
      name: "core",
      remotes: {
-       "store": process.env.ENV === "production" ? "store@https://webpack-ten.vercel.app/store.js" : "store@http://localhost:3000/store.js",
-       "attackChains": process.env.ENV === "production" ? "attackChains@https://attack-chains.vercel.app/attackChains.js" : "attackChains@http://localhost:3003/attackChains.js",
-       "ui_components": process.env.ENV === "production" ? "store@https://webpack-ten.vercel.app/store.js" : "ui_components@http://localhost:3005/ui_components.js",
+       // Do not look on vercel it's examples only meaning
+       "shared": process.env.ENV === "production" ? "shared@https://webpack-ten.vercel.app/store.js" : "shared@http://localhost:3000/shared.js",
+       "attackPaths": process.env.ENV === "production" ? "attackPaths@https://attack-paths.vercel.app/attackPaths.js" : "attackPaths@http://localhost:3003/attackPaths.js",
+       "ui_components": process.env.ENV === "production" ? "ui_components@https://webpack-ten.vercel.app/ui_components.js" : "ui_components@http://localhost:3005/ui_components.js",
      },
      shared: { react: { singleton: true }, 'react-dom': { singleton: true }, 'react-router-dom': { singleton: true } },
    }),
