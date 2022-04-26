@@ -1,11 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { IdentityApi } from "store/store";
+import { IdentityApi, EventBus } from "shared/shared";
 import { Button, Input } from "ui_components/ui_components";
-import { EventBus } from "store/store";
-import { IdentityPayload } from "shared-types";
-
-// import { EventBus } from "store/src/utils";
 
 export interface LoginPageProps {
     defaultPageRedirect: string;

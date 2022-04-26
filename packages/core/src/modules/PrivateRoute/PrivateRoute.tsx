@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Navigate } from "react-router-dom";
+import { useAuthorized } from "../../hooks";
 
 export enum Roles {
     Admin = "admin",
@@ -8,24 +9,6 @@ export enum Roles {
 export interface PrivateRouteProps {
     component: React.ComponentType;
     roles: Array<Roles>;
-}
-
-export function useAuthorized() {
-    const [isAuthorized, _] = useState(() => {
-        try {
-            const identity = JSON.parse(
-                sessionStorage.getItem("identity") as string
-            );
-
-            return Boolean(identity.jwt);
-        } catch (e) {
-            return false;
-        }
-    });
-
-    return {
-        isAuthorized,
-    };
 }
 
 export function PrivateRoute({

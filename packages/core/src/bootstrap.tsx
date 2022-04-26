@@ -4,12 +4,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import { Route, Routes } from "react-router-dom";
-import { StoreProvider } from "store/store";
+import { StoreProvider } from "shared/shared";
 
 import { PrivateRoute, Roles } from "./modules";
 import { LoginPage } from "./pages";
 
-const AttackChainsPage = React.lazy(() => import("attackChains/attackChains"));
+const AttackPathsPage = React.lazy(() => import("attackPaths/attackPaths"));
 
 function App() {
     return (
@@ -28,7 +28,7 @@ function App() {
                         element={
                             <PrivateRoute
                                 roles={[Roles.Admin]}
-                                component={AttackChainsPage}
+                                component={AttackPathsPage}
                             />
                         }
                     />
