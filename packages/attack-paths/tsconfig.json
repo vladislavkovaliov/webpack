@@ -1,14 +1,16 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist/",
-    "noImplicitAny": true,
-    "module": "es2022",
-    "target": "es5",
-    "sourceMap": true,
-    "jsx": "react",
-    "allowJs": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports" : true
-  }
+    "outDir": "attack-paths",
+    "baseUrl": "./",
+    "noEmitOnError": true,
+    "noEmit": false,
+    "paths": {
+      "@test/shares-types": ["../shared-types/src"],
+      "@test/shared": ["../shared/src"],
+//      "@test/ui": ["../ui-components/src"]
+    }
+  },
+  "include":  ["src/**/*"],
+  "references": [{ "path": "../shared-types" }, { "path": "../shared" }]
 }
-

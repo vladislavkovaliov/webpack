@@ -2,78 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73e27f82-d12c-4eec-97dd-8be2d41db293" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/packages/attack-paths/src/attackPaths.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/attack-paths/src/modules/AttackPathsTable/AttackPathsTable.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/attack-paths/src/modules/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/attack-paths/src/webpack-modules-federation.decl.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/core/src/hooks/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/core/src/hooks/useAuthorized.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/shared/src/apis/http.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/shared/src/apis/identity.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/shared/src/apis/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/shared/src/apis/sonar.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/shared/src/shared.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/shared/src/utils/IdentityProvider/IdentityProvider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/shared/src/utils/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/shared-types/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/configs/webpack/webpack.common.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/configs/webpack/webpack.common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/configs/webpack/webpack.dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/configs/webpack/webpack.dev.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/configs/webpack/webpack.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/configs/webpack/webpack.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/postcss.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/src/attackChains.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/src/bootstrap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/src/bootstrap.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/src/components/Table/Table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/src/components/Table/Table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/src/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/src/modules/AttackChainsTable/AttackChainsTable.css" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/src/modules/AttackPathsTable/AttackPathsTable.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/src/modules/AttackChainsTable/AttackChainsTable.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/src/modules/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/src/webpack-modules-federation.decl.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/attack-chains/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/attack-paths/configs/webpack/webpack.common.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/configs/webpack/webpack.common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/attack-paths/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/attack-paths/src/attackPaths.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/src/attackPaths.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/attack-paths/src/bootstrap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/src/bootstrap.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/attack-paths/src/components/Table/Table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/src/components/Table/Table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/attack-paths/src/modules/AttackPathsTable/AttackPathsTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/src/modules/AttackPathsTable/AttackPathsTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/attack-paths/src/webpack-modules-federation.decl.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/attack-paths/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/attack-paths/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/core/configs/webpack/webpack.common.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/configs/webpack/webpack.common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/src/bootstrap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/bootstrap.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/src/modules/PrivateRoute/PrivateRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/modules/PrivateRoute/PrivateRoute.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/src/pages/login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/pages/login/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/src/webpack-modules-federation.decl.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/src/webpack-modules-federation.decl.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/configs/webpack/webpack.common.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/configs/webpack/webpack.common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/configs/webpack/webpack.dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/configs/webpack/webpack.dev.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/configs/webpack/webpack.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/configs/webpack/webpack.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/constants/envrionment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/constants/envrionment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/postcss.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/apis/identity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/src/apis/identity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/apis/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/src/apis/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/apis/sonar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/src/apis/sonar.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/bootstrap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/src/bootstrap.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/hooks/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/hooks/useAttackChains.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/hooks/useIdentity.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/hooks/useReduxStore.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/middlewares/auth.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/middlewares/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/middlewares/persist.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/store.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/stores/attackChains/slice.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/stores/error/slice.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/stores/identity/slice.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/utils/EventBus/EventBus.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/src/utils/EventBus/EventBus.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/src/utils/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/store/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/ui-components/src/webpack-modules-federation.decl.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/ui-components/src/webpack-modules-federation.decl.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared-types/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared-types/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared-types/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared-types/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/configs/webpack/webpack.common.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/configs/webpack/webpack.common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/src/apis/identity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/src/apis/identity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/src/apis/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/src/apis/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/src/bootstrap.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/src/shared.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/src/shared.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/src/utils/IdentityProvider/IdentityProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/src/utils/IdentityProvider/IdentityProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/ui-components/configs/webpack/webpack.common.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/ui-components/configs/webpack/webpack.common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/ui-components/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/ui-components/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/ui-components/src/webpack-modules-federation.decl.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/ui-components/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/ui-components/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -5,6 +5,7 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const { merge } = require('webpack-merge');
 
 const base = require('../../../../configs/webpack.config');
+const {dependencies: deps} = require("../../../../package.json");
 
 module.exports = merge(base, {
 output: {
@@ -24,7 +25,7 @@ output: {
        "attackPaths": process.env.ENV === "production" ? "attackPaths@https://attack-paths.vercel.app/attackPaths.js" : "attackPaths@http://localhost:3003/attackPaths.js",
        "ui_components": process.env.ENV === "production" ? "ui_components@https://webpack-ten.vercel.app/ui_components.js" : "ui_components@http://localhost:3005/ui_components.js",
      },
-     shared: { react: { singleton: true }, 'react-dom': { singleton: true }, 'react-router-dom': { singleton: true } },
+       shared: { react: { requiredVersion: deps.react, strictVersion: true, singleton: true }, 'react-dom': { requiredVersion: deps['react-dom'], strictVersion: true, singleton: true }, 'react-router-dom': { requiredVersion: deps['react-router-dom'], strictVersion: true, singleton: true } },
    }),
  ]
 });

@@ -1,6 +1,6 @@
 import React, { createContext, useMemo, useState } from "react";
-import { IdentityPayload } from "shared-types";
 import { EventBus } from "../EventBus/EventBus";
+import {IdentityPayload} from "../../apis";
 
 export const defaultIdentity = {
     jwt: "",

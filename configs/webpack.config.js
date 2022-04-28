@@ -29,6 +29,7 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
 
+    // TODO: explicit into web app only
     entry: {
         index: {
             import: './src/index.ts',

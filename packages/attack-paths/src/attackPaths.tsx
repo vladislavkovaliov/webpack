@@ -2,8 +2,7 @@ import React, { useCallback, useEffect } from "react";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import { AttackPathsTable } from "./modules";
-import { EventBus } from "shared/shared";
-import { IdentityPayload } from "shared-types";
+import { EventBus, IdentityPayload } from "@test/shared";
 
 export default function AttackPaths() {
     const navigate = useNavigate();

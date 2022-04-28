@@ -2,7 +2,6 @@
   "name": "shared",
   "version": "1.0.0",
   "description": "",
-  "private": true,
   "scripts": {
     "build": "webpack --config ./configs/webpack/webpack.prod.js",
     "start": "webpack serve --config ./configs/webpack/webpack.dev.js",
@@ -37,11 +36,6 @@
     "html-webpack-plugin": "5.5.0",
     "lodash": "4.17.21",
     "process": "0.11.10",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-redux": "7.2.6",
-    "react-router-dom": "6.2.2",
-    "shared-types": "1.0.0",
     "webpack-dev-server": "4.7.4",
     "webpack-merge": "5.8.0"
   }

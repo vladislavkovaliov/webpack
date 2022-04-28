@@ -21,11 +21,9 @@
     "jsx": "react-jsx",
     "strictPropertyInitialization": false
   },
-  "include": [
-    "packages/*/src"
-  ],
   "exclude": [
     "node_modules",
-    "*.js"
+    "*.js",
+    "*.jsx"
   ]
 }
