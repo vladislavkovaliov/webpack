@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
 const { merge } = require('webpack-merge');
+const deps = require('../../../../package.json').dependencies;
 
 const base = require('../../../../configs/webpack.config');
 
@@ -22,7 +23,7 @@ module.exports = merge(base, {
       exposes: {
         './ui_components': path.resolve(__dirname, '../..', 'src/components'),
       },
-      shared: { react: { singleton: true }, 'react-dom': { singleton: true }, 'react-router-dom': { singleton: true } },
+      shared: { react: { requiredVersion: deps.react, strictVersion: true, singleton: false }, 'react-dom': { requiredVersion: deps["react-dom"], singleton: false }, 'react-router-dom': { requiredVersion: deps['react-router-dom'], singleton: false } },
     }),
   ]
 });

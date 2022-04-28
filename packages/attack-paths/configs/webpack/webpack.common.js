@@ -5,6 +5,7 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const { merge } = require('webpack-merge');
 
 const base = require('../../../../configs/webpack.config');
+const {dependencies: deps} = require("../../../../package.json");
 
 module.exports = merge(base, {
   output: {
@@ -27,7 +28,7 @@ module.exports = merge(base, {
         './modules':  path.resolve(__dirname, '../..', 'src/modules'),
         './attackPaths': path.resolve(__dirname, '../..', 'src/attackPaths'),
       },
-      shared: { react: { singleton: true }, 'react-dom': { singleton: true }, 'react-router-dom': { singleton: true } },
+      shared: { react: { requiredVersion: deps.react, strictVersion: true, singleton: true }, 'react-dom': { requiredVersion: deps['react-dom'], strictVersion: true, singleton: true }, 'react-router-dom': { requiredVersion: deps['react-router-dom'], strictVersion: true, singleton: true } },
     }),
   ]
 });

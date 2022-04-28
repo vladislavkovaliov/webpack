@@ -1,5 +1,5 @@
 import React from "react";
-import { IAttackPathModel } from "shared-types";
+import { IAttackPathModel } from "@test/shares-types";
 import { map } from "lodash";
 
 export interface TableProps {

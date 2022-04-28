@@ -1,8 +1,19 @@
-import { IdentityPayload, IdentityErrorPayload } from "shared-types";
 
 export interface ICredentials {
     email: string;
     password: string;
+}
+
+export interface IdentityPayload {
+    email: string;
+    jwt: string;
+    refresh: string;
+    status: string;
+}
+
+export interface IdentityErrorPayload {
+    error: Error;
+    type: string;
 }
 
 export class IdentityApi {

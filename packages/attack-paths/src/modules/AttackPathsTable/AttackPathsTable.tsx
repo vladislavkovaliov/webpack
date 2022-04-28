@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { http } from "shared/shared";
 import { Table } from "../../components";
 import { useNavigate } from "react-router-dom";
-import { EventBus } from "shared/shared";
+import { EventBus, http } from "@test/shared";
 
 export interface IResponse {
     data: {
@@ -27,7 +26,7 @@ export function useAttackPaths() {
             try {
                 const response = await http.get("sonar/query?", {
                     query: "AttackPaths",
-                    standard_format: true,
+                    standard_format: "true",
                 });
                 setData(response);
             } catch (e) {

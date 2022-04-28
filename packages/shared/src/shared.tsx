@@ -1,8 +1,8 @@
 import React from "react";
 
 import { BrowserRouter } from "react-router-dom";
-import { IdentityErrorPayload, IdentityPayload } from "shared-types";
 import { EventBus, IdentityProvider } from "./utils";
+import {IdentityErrorPayload, IdentityPayload} from "./apis";
 
 export function initEventBus(window: Window) {
     const { unregister } = EventBus.getInstance().register(
